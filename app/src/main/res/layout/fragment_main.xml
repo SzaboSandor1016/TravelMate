@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:animateLayoutChanges="true"
+    tools:context="com.example.travel_mate.ui.FragmentMain"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include layout="@layout/content_inner_main"/>
+
+        <!--TODO check here if error-->
+        <!--<FrameLayout
+            android:id="@+id/main_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:animateLayoutChanges="true"/>-->
+
+        <!--<com.google.android.material.chip.ChipGroup
+            android:id="@+id/route_chips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/trip_buttons"
+            app:layout_constraintRight_toRightOf="@+id/trip_buttons"
+            app:singleSelection="true"
+            android:visibility="gone">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/optimize_route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:text="@string/optimize_route"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/dismiss_optimize_route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                app:textStartPadding="0dp"
+                app:textEndPadding="0dp"
+                app:chipIcon="@drawable/ic_route_plan_done"/>
+
+        </com.google.android.material.chip.ChipGroup>-->
+
+
+        <!--<AutoCompleteTextView
+            android:id="@+id/map_autocomplete_text_field"
+            style="@style/auto_complete_text_view_style"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="wrap_content"
+            android:hint="@string/search_place"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_title_layout" />-->
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/item_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/map">
+
+            <FrameLayout
+                android:id="@+id/bottom_sheet_container"
+                style="@style/Widget.Material3.BottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
