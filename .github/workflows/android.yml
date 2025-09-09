@@ -22,13 +22,7 @@ jobs:
 
     - name: Restore google-services.json
       run: |
-        python3 - <<EOF
-        import os, base64
-        secret = os.environ['GOOGLE_SERVICES_JSON']
-        with open('app/google-services.json', 'wb') as f:
-            f.write(base64.b64decode(secret))
-        EOF
-      shell: bash
+        echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
