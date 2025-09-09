@@ -12,11 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Detect Java version from Gradle
+      id: java-version
+      run: |
+            # Parse Java version from build.gradle (simple grep example)
+            JAVA_VER=$(grep -m1 'sourceCompatibility' app/build.gradle | awk '{print $3}' | tr -d 'VERSION_')
+            echo "JAVA_VERSION=$JAVA_VER" >> $GITHUB_ENV
+    
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+    - name: set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: ${{ env.JAVA_VERSION }}
         distribution: 'temurin'
         cache: gradle
 
