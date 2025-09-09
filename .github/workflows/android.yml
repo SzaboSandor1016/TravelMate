@@ -16,7 +16,6 @@ jobs:
     - name: Detect Java version from Gradle
       id: java-version
       run: |
-            # Parse Java version from build.gradle (simple grep example)
             JAVA_VER=$(grep -m1 'sourceCompatibility' app/build.gradle | awk '{print $3}' | tr -d 'VERSION_')
             echo "JAVA_VERSION=$JAVA_VER" >> $GITHUB_ENV
     
