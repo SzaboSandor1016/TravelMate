@@ -17,6 +17,7 @@ android {
         versionCode = 1
         versionName = "2025.8.16"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {

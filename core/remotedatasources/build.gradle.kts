@@ -13,6 +13,10 @@ android {
         minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val apiKey = if(project.hasProperty("OPEN_ROUTE_SERVICE_KEY")) project.property("OPEN_ROUTE_SERVICE_KEY") as String
+            else System.getenv("OPEN_ROUTE_SERVICE_KEY") ?: ""
+        buildConfigField("String", "OPEN_ROUTE_SERVICE_KEY", "\"${apiKey}\"")
     }
 
     buildFeatures {
