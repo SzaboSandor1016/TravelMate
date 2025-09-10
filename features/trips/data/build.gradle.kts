@@ -43,7 +43,13 @@ dependencies {
     implementation(libs.google.firebase.auth)
     implementation(libs.google.firebase.database)
 
-    val room_version = "2.7.2"
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.room.runtime)
     //noinspection KaptUsageInsteadOfKsp

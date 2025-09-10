@@ -33,7 +33,13 @@ dependencies {
     implementation(project(":core:database:dao"))
     implementation(project(":core:database:domain"))
 
-    val room_version = "2.7.2"
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)

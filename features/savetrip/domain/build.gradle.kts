@@ -36,9 +36,13 @@ dependencies {
     // Kotlin Coroutines (for Flow/StateFlow, etc.)
     implementation(libs.kotlinx.coroutines.core)
 
-    // Optional: for testing domain logic
     testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.io.insert.koin)
 }

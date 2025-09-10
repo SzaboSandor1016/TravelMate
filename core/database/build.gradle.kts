@@ -32,6 +32,14 @@ dependencies {
 
     implementation(project(":core:database:dao"))
 
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.androidx.room.runtime)
     //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler)

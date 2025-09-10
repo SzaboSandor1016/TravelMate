@@ -36,11 +36,19 @@ dependencies {
     implementation(project(":core:remotedatasources"))
     implementation(project(":core:remotedatasources:routedatasource:domain"))
 
-    implementation("org.osmdroid:osmdroid-android:6.1.18")
+    implementation(libs.osmdroid.android)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
+    implementation(libs.kotlinx.coroutines.play.services)
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.io.insert.koin)
 }

@@ -43,9 +43,13 @@ dependencies {
     implementation(project(":core:remotedatasources"))
     implementation(project(":core:remotedatasources"))
 
-    // Optional: for testing domain logic
     testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.io.insert.koin)
 }

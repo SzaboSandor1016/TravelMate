@@ -44,5 +44,13 @@ dependencies {
     implementation(libs.google.firebase.auth)
     implementation(libs.google.firebase.database)
 
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.io.insert.koin)
 }

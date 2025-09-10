@@ -93,8 +93,12 @@ dependencies {
     api(libs.androidx.navigation.ui)
     //api("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
+    testImplementation(kotlin("test"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.io.mockk)
+    androidTestImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.zxing.android.embedded)
 
