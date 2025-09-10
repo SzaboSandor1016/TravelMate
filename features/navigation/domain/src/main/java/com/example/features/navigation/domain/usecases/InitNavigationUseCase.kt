@@ -15,7 +15,7 @@ class InitNavigationUseCase(
 
         navigationRepository.initNavigation(
             destinationCoordinates = currentRouteNodesCoordinates.subList(
-                fromIndex = 1, toIndex = currentRouteNodesCoordinates.size - 1
+                fromIndex = 1, toIndex = currentRouteNodesCoordinates.size
             ).map {
                 it.toCoordinatesNavigationDomainModel()
             },

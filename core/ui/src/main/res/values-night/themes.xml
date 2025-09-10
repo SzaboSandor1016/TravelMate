@@ -373,9 +373,9 @@
         <item name="tabIndicatorColor">@color/tab_layout_active_indicator_color</item>
     </style>
 
-    <style name="Theme.GTKMAPS.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+    <style name="Theme.TRAVELMATE.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
     <!-- Base application theme. -->
-    <style name="Base.Theme.GTKMAPS" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TRAVELMATE" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

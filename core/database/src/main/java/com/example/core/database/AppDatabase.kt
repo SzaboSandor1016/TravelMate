@@ -16,7 +16,18 @@ import com.example.core.databse.dao.models.TripLocalEntityModel
  *
  *  !Any changes made in the data of the [Entity] classes result a need for migration!
  */
-@Database(entities = [TripLocalEntityModel::class, PlaceLocalEntityModel::class, DayOfTripLocalEntityModel::class, CoordinatesLocalEntityModel::class, AddressLocalEntityModel::class, DayPlacesCrossRef::class], version = 2)
+@Database(
+    entities = [
+        TripLocalEntityModel::class,
+        PlaceLocalEntityModel::class,
+        DayOfTripLocalEntityModel::class,
+        CoordinatesLocalEntityModel::class,
+        AddressLocalEntityModel::class,
+        DayPlacesCrossRef::class
+    ],
+    version = 2,
+    exportSchema = false
+)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun tripDao(): TripDao
 }

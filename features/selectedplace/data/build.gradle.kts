@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
 }
 
@@ -32,7 +32,7 @@ dependencies {
 
     implementation(project(":features:selectedplace:domain"))
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

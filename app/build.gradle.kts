@@ -1,9 +1,8 @@
-
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("com.google.gms.google-services")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
 }
 
 android {
@@ -14,7 +13,7 @@ android {
         applicationId = "com.example.travel_mate"
         minSdk = 29
         targetSdk = 35
-        versionCode = 1
+        versionCode = 20250816
         versionName = "2025.8.16"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -75,44 +74,38 @@ dependencies {
     implementation(project(":features:selectedplace:domain"))
     implementation(project(":features:savetrip:domain"))
 
-    implementation("androidx.core:core-ktx:1.16.0")
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
 
-    implementation("org.osmdroid:osmdroid-android:6.1.18")
-    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.29")
+    implementation(libs.osmdroid.android)
+    implementation(libs.android.gif.drawable)
 
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation(libs.androidx.recyclerview)
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    implementation("androidx.activity:activity-ktx:1.10.1")
+    implementation(libs.androidx.activity)
 
-    val nav_version = "2.9.3"
+    api(libs.androidx.navigation.fragment)
+    api(libs.androidx.navigation.ui)
+    //api("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
-    api("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    api("androidx.navigation:navigation-ui-ktx:$nav_version")
-    api("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.zxing.android.embedded)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+    implementation (libs.osmbonuspack)
 
-    implementation ("com.github.MKergall:osmbonuspack:6.9.0")
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room)
 
-    val room_version = "2.7.1"
-
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-
-
-    val fragment_version = "1.8.6"
     // Kotlin
-    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+    implementation(libs.androidx.fragment)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

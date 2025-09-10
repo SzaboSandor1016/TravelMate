@@ -69,7 +69,7 @@
 
     <color name="DialogLayoutBackground">@color/white</color>
 
-    <style name="Theme.GTKMAPS.NoActionBar">
+    <style name="Theme.TRAVELMATE.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -396,9 +396,9 @@
         <item name="tabIndicatorColor">@color/tab_layout_active_indicator_color</item>
     </style>
 
-    <style name="Theme.GTKMAPS.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.TRAVELMATE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <!-- Base application theme. -->
-    <style name="Base.Theme.GTKMAPS" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TRAVELMATE" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>

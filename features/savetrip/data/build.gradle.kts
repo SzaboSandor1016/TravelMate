@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
 }
 
@@ -37,12 +37,12 @@ dependencies {
     implementation(project(":core:remotedatasources:tripremotedatasource:domain"))
     implementation(project(":core:auth:domain"))
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-database")
+    implementation(platform(libs.google.firebase.bom))
+    implementation(libs.google.firebase.analytics)
+    implementation(libs.google.firebase.auth)
+    implementation(libs.google.firebase.database)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
     /*dependency injection plugin*/
 }
@@ -32,11 +32,11 @@ android {
 
 dependencies {
     // Kotlin Coroutines (for Flow/StateFlow, etc.)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    implementation(libs.kotlinx.coroutines.core)
 
     // Optional: for testing domain logic
     testImplementation(kotlin("test"))
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+    testImplementation(libs.kotlinx.coroutines.test)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

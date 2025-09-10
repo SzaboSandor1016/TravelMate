@@ -7,6 +7,7 @@ import com.example.features.savetrip.domain.usecases.AreAssignablePlacesEmptyUse
 import com.example.features.savetrip.domain.usecases.AssignPlaceToDayUseCase
 import com.example.features.savetrip.domain.usecases.ClearAssignablePlacesUseCase
 import com.example.features.savetrip.domain.usecases.GetAssignablePlacesUseCase
+import com.example.features.savetrip.domain.usecases.GetNewContributorByUsernameUseCase
 import com.example.features.savetrip.domain.usecases.GetPlacesOfSelectedDayUseCase
 import com.example.features.savetrip.domain.usecases.GetSaveTripContributorsInfoUseCase
 import com.example.features.savetrip.domain.usecases.GetSaveTripInfoUseCase
@@ -59,7 +60,7 @@ val saveTripModule = module {
     factory { SetSelectedDayOfSaveTripUseCase(get()) }
     factory { SetTripDetailsUseCase(get()) }
     factory { SetUserPermissionUseCase(get()) }
-
+    factory { GetNewContributorByUsernameUseCase(get()) }
     factory { SetSaveTripNoteUseCase(get()) }
     factory { SetSaveTripTitleUseCase( get()) }
     factory { SetSaveTripDateUseCase(get()) }

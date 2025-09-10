@@ -161,15 +161,8 @@ class FragmentRoute : Fragment() {
 
                 val isDraggingUpward = dY < 0
 
-                val isDraggingIntoUndraggableArea =
-                    (isDraggingUpward && recyclerView.findViewHolderForAdapterPosition(0)
-                        ?.let { !canDropOver(recyclerView, viewHolder, it) } == true)
-
-                val newDy = if (isDraggingIntoUndraggableArea) {
-                    0f  // Clamp
-                } else {
-                    dY
-                }
+                val firstItemTop = recyclerView.getChildAt(0)?.top ?: 0
+                val newDy = if (viewHolder.itemView.top + dY < firstItemTop) 0f else dY
 
                 super.onChildDraw(
                     c,

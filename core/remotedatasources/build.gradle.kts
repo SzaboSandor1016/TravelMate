@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.konan.properties.hasProperty
+import java.util.Properties
+
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
 }
 
@@ -14,9 +17,19 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        val apiKey = if(project.hasProperty("OPEN_ROUTE_SERVICE_KEY")) project.property("OPEN_ROUTE_SERVICE_KEY") as String
-            else System.getenv("OPEN_ROUTE_SERVICE_KEY") ?: ""
-        buildConfigField("String", "OPEN_ROUTE_SERVICE_KEY", "\"${apiKey}\"")
+        val localPropertiesFile = rootProject.file("local.properties")
+        val localProperties = Properties()
+        if (localPropertiesFile.exists()) {
+            localPropertiesFile.inputStream().use { localProperties.load(it) }
+        }
+        val apiKey = if(localProperties.hasProperty("OPEN_ROUTE_SERVICE_KEY"))
+            localProperties.getProperty("OPEN_ROUTE_SERVICE_KEY") as String
+        else System.getenv("OPEN_ROUTE_SERVICE_KEY") ?: ""
+        buildConfigField("String", "OPEN_ROUTE_SERVICE_KEY", "\"$apiKey\"")
+
+        /*val apiKey = if(project.hasProperty("OPEN_ROUTE_SERVICE_KEY")) project.property("OPEN_ROUTE_SERVICE_KEY") as String
+            else System.getenv("OPEN_ROUTE_SERVICE_KEY") ?: "asd"*/
+        //buildConfigField("String", "OPEN_ROUTE_SERVICE_KEY", "\"${apiKey}\"")
     }
 
     buildFeatures {
@@ -34,12 +47,12 @@ android {
 
 dependencies {
 
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

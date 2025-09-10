@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
     /*dependency injection plugin*/
 }
@@ -82,5 +82,5 @@ dependencies {
     implementation(project(":features:user:domain"))
     implementation(project(":features:user:presentation"))
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

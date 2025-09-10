@@ -128,10 +128,9 @@ class FragmentSelectContributors : Fragment() {
 
             val username = binding.addContributor.getText().toString().trim()
 
-            //TODO DO IT!!! (Completely forgot this)
-           /* viewModelSaveTrip.getNewContributorData(
+            viewModelSaveTrip.getNewContributorByUsername(
                 username = username
-            )*/
+            )
         }
 
         binding.done.setOnClickListener { _ ->

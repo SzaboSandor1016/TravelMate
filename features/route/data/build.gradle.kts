@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id("kotlin-parcelize")
 }
 
@@ -35,13 +35,13 @@ dependencies {
     implementation(project(":core:remotedatasources"))
     implementation(project(":core:remotedatasources:routedatasource:domain"))
 
-    implementation("org.osmdroid:osmdroid-android:6.1.18")
+    implementation(libs.osmdroid.android)
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.gson)
 
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
-    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation(libs.io.insert.koin)
 }

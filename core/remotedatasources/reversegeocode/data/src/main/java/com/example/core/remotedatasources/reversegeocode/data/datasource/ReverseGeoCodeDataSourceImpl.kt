@@ -1,5 +1,6 @@
 package com.example.core.remotedatasources.reversegeocode.data.datasource
 
+import android.util.Log
 import com.example.core.remotedatasources.reversegeocode.domain.datasource.ReverseGeoCodeDataSource
 import com.example.remotedatasources.ORSConstants.Companion.API_KEY
 import com.example.remotedatasources.ORSConstants.Companion.API_URL
@@ -20,6 +21,7 @@ class ReverseGeoCodeDataSourceImpl: ReverseGeoCodeDataSource {
 
     override suspend fun getReverseGeoCode(latitude: Double, longitude: Double): Flow<ReverseGeoCodeResponse> {
 
+        Log.d("apiKey", API_KEY)
 
         return flowOf(
             routeServiceRetrofit.getReverseGeoCode(

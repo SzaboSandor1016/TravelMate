@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.features.savetrip.domain.usecases.AssignPlaceToDayUseCase
 import com.example.features.savetrip.domain.usecases.GetAssignablePlacesUseCase
+import com.example.features.savetrip.domain.usecases.GetNewContributorByUsernameUseCase
 import com.example.features.savetrip.domain.usecases.GetPlacesOfSelectedDayUseCase
 import com.example.features.savetrip.domain.usecases.GetSaveTripContributorsInfoUseCase
 import com.example.features.savetrip.domain.usecases.GetSaveTripInfoUseCase
@@ -56,6 +57,7 @@ class SaveTripViewModel(
     private val setSaveTripDateUseCase: SetSaveTripDateUseCase,
     private val setSaveTripTitleUseCase: SetSaveTripTitleUseCase,
     private val setSaveTripNoteUseCase: SetSaveTripNoteUseCase,
+    private val getNewContributorByUsernameUseCase: GetNewContributorByUsernameUseCase
 ): ViewModel() {
 
     val hasUser: StateFlow<Boolean> by lazy {
@@ -241,6 +243,14 @@ class SaveTripViewModel(
             setSaveTripNoteUseCase(
                 note = note
             )
+        }
+    }
+
+    fun getNewContributorByUsername(username: String) {
+
+        viewModelScope.launch {
+
+            getNewContributorByUsernameUseCase(username = username)
         }
     }
 

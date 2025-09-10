@@ -17,9 +17,9 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/p_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/p_newlogo"
+        android:roundIcon="@drawable/p_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GTKMAPS"
+        android:theme="@style/Theme.TRAVELMATE"
         tools:targetApi="31">
         <!--<activity
             android:name=".ActivityMain"
