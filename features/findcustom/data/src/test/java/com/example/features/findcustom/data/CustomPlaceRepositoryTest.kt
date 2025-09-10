@@ -6,9 +6,12 @@ import com.example.features.findcustom.domain.models.CoordinatesCustomPlaceDomai
 import com.example.features.findcustom.domain.models.CustomPlaceInfoCustomPlaceDomainModel
 import com.example.features.findcustom.domain.models.CustomPlaceMapDataCustomPlaceDomainModel
 import com.example.features.findcustom.domain.models.PlaceCustomPlaceDomainModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -21,6 +24,7 @@ import org.junit.Test
 class CustomPlaceRepositoryTest {
 
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun setCustomPlaceTest() = runTest {
 
@@ -59,16 +63,14 @@ class CustomPlaceRepositoryTest {
         val mapDataEmissions = mutableListOf<CustomPlaceMapDataCustomPlaceDomainModel>()
         val infoDataEmissions = mutableListOf<CustomPlaceInfoCustomPlaceDomainModel>()
 
-        val mapJob = launch {
-            testCustomPlaceRepositoryImpl.getCustomPlaceMapData().toList(mapDataEmissions)
-        }
-        val infoJob = launch {
-            testCustomPlaceRepositoryImpl.getCustomPlaceInfo().toList(infoDataEmissions)
-        }
+        val mapJob = launch { testCustomPlaceRepositoryImpl.getCustomPlaceMapData().toList(mapDataEmissions) }
+        val infoJob = launch { testCustomPlaceRepositoryImpl.getCustomPlaceInfo().toList(infoDataEmissions) }
 
         testCustomPlaceRepositoryImpl.setCustomPlace(testCustomPlace)
         testCustomPlaceRepositoryImpl.resetCustomPlace()
         testCustomPlaceRepositoryImpl.setCustomPlace(testCustomPlace1)
+
+        advanceUntilIdle() // Waits for all coroutines to finish scheduled work
 
         mapJob.cancel()
         infoJob.cancel()

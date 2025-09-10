@@ -32,6 +32,22 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    packaging {
+        resources {
+            // Exclude duplicates
+            excludes += setOf(
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/license.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/DEPENDENCIES",
+                "META-INF/ASL2.0",
+                "META-INF/LGPL2.1"
+            )
+        }
+    }
+
     buildFeatures {
         viewBinding = true
     }
