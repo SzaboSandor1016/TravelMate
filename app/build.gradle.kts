@@ -13,8 +13,8 @@ android {
         applicationId = "com.example.travel_mate"
         minSdk = 29
         targetSdk = 35
-        versionCode = 20250816
-        versionName = "2025.8.16"
+        versionCode = 1
+        versionName = "v1.0.0-alpha"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -36,14 +36,8 @@ android {
         resources {
             // Exclude duplicates
             excludes += setOf(
-                "META-INF/LICENSE",
-                "META-INF/LICENSE.txt",
-                "META-INF/license.txt",
-                "META-INF/NOTICE",
-                "META-INF/NOTICE.txt",
-                "META-INF/DEPENDENCIES",
-                "META-INF/ASL2.0",
-                "META-INF/LGPL2.1"
+                "META-INF/LICENSE-notice.md",
+                "META-INF/LICENSE.md"
             )
         }
     }

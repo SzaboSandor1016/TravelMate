@@ -20,7 +20,7 @@
         android:roundIcon="@drawable/p_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.TRAVELMATE"
-        tools:targetApi="31">
+        tools:targetApi="34">
         <!--<activity
             android:name=".ActivityMain"
             android:exported="false"

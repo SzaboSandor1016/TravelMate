@@ -6,8 +6,6 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -44,7 +42,6 @@ private const val TRIP = "trip"
 /** [FragmentSaveTrip]
  * a [Fragment] to save a trip either to the local or to the remote database
  */
-@RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 class FragmentSaveTrip : Fragment() {
 
     // TODO: Rename and change types of parameters
