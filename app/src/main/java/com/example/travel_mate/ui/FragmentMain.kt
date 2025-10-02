@@ -110,7 +110,7 @@ class FragmentMain : Fragment(), MapEventsReceiver {
 
     private lateinit var navController: NavController;
 
-        private lateinit var fragmentManager: FragmentManager
+    private lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
